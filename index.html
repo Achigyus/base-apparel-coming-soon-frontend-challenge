@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
+
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./images/favicon-32x32.png"
+        />
+
+        <title>Frontend Mentor | Base Apparel coming soon page</title>
+
+        <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="container">
+            <div id="logo">
+                <img src="./images/logo.svg" alt="BASE APPAREL" />
+            </div>
+            <div id="image">
+                <div id="imageMobile">
+                    <img src="./images/hero-mobile.jpg" alt="hero" />
+                </div>
+                <div id="imageDesktop">
+                    <img src="./images/hero-desktop.jpg" alt="hero" />
+                </div>
+            </div>
+            <div id="content">
+                <h1>We're</br><span>coming soon</span></h1>
+                <p>
+                    Hello fellow shoppers! We're currently building our new
+                    fashion store. Add your email below to stay up-to-date with
+                    announcements and our launch deals.
+                </p>
+                <form >
+                    <label for="email"></label>
+                    <div id="inputWrapper">
+                        <input type="email" name="email" id="email" placeholder="Email Address" />
+                        <img id="errorLogo" class="errorEmail" src="./images/icon-error.svg" alt="">
+                        <button id="sendEmail" onclick="return false">
+                            <img src="./images/icon-arrow.svg" alt="" />
+                        </button>
+                    </div>
+                    <div id="errorMsg" class="errorEmail">Please provide a valid email</div>
+                </form>
+            </div>
+        </div>
+        <script>
+            const email = document.querySelector('#email');
+            const sendEmail = document.querySelector('#sendEmail');
+            const errorLogo = document.querySelector('#errorLogo');
+            const errorMsg = document.querySelector('#errorMsg')
+
+            function validateEmail(email) {
+              const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+              return re.test(String(email).toLowerCase());
+            }
+
+            function showError() {
+              errorLogo.classList.remove("errorEmail")
+              errorMsg.classList.remove('errorEmail')
+            }
+
+            function hideError() {
+              errorLogo.classList.add("errorEmail")
+              errorMsg.classList.add('errorEmail')
+            }
+
+            sendEmail.addEventListener('click', () => {
+              validateEmail(email.value) ? hideError() : showError()
+            })
+        </script>
+    </body>
+</html>
