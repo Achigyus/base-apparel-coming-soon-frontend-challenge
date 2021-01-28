@@ -97,7 +97,7 @@ body {
 
 #content #inputWrapper button {
     border-radius: calc(var(--spacing) * 3 / 4);
-    width: calc(var(--spacing) * 5 / 2);
+    min-width: calc(var(--spacing) * 2);
     border: none;
     background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
     box-shadow: 0px 15px 20px rgba(198, 110, 110, 0.247569);
@@ -123,17 +123,125 @@ body {
     display: none;
 }
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 865px) {
+    body {
+        max-width: none;
+        width: 100vw;
+        height: 100vh;
+        background: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
     #imageDesktop {
         display: block;
     }
+
+    #imageDesktop img {
+        max-height: 600px;
+    }
+
     #imageMobile {
         display: none;
     }
+
     #container {
+        max-width: 1440px;
+        height: 600px;
         display: grid;
         grid-template-areas:
             'logo    image'
             'content image';
+        background: url('./images/bg-pattern-desktop.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        grid-template-rows: 1fr 10fr;
+    }
+
+    #logo {
+        padding: 75px 0 0 125px;
+    }
+
+    #logo img {
+        width: 138px;
+    }
+
+    #content {
+        padding: 70px 180px 0 125px;
+        margin: 0;
+        text-align: left;
+    }
+
+    #content h1 {
+        font-size: 48px;
+        line-height: 48px;
+        letter-spacing: 12px;
+    }
+
+    #content p {
+        margin: 26px 0 30px;
+        font-size: 16px;
+        line-height: 28px;
+    }
+
+    #content #inputWrapper {
+        height: 56px;
+        border-radius: 28px;
+    }
+
+    #content #inputWrapper input {
+        border-radius: 28px;
+    }
+
+    #content #inputWrapper button {
+        border-radius: 28px;
+        min-width: 100px;
+    }
+}
+
+@media screen and (min-width: 1150px) {
+    #imageDesktop img {
+        max-height: none;
+    }
+
+    #container {
+        height: 800px;
+    }
+
+    #logo {
+        padding: 75px 0 0 165px;
+    }
+
+    #logo img {
+        width: 158px;
+    }
+
+    #content {
+        padding: 136px 220px 0 165px;
+    }
+
+    #content h1 {
+        font-size: 64px;
+        line-height: 64px;
+        letter-spacing: 17.3206px;
+    }
+
+    #content p {
+        margin: 32px 0 40px;
+    }
+
+    #content #inputWrapper {
+        height: 56px;
+        border-radius: 28px;
+    }
+
+    #content #inputWrapper input {
+        border-radius: 28px;
+    }
+
+    #content #inputWrapper button {
+        border-radius: 28px;
+        min-width: 100px;
     }
 }
